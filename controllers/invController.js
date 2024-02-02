@@ -24,12 +24,12 @@ invCont.buildByClassificationId = async function (req, res, next) {
 
 // Display single car view
 invCont.displayCarById = async function (req, res, next) {
-  const invId = req.params.InvId;
+  const invId = req.params.invId;
   const data = await invModel.getCarById(invId);
   const car = await utilities.getVehicle(data);
-  let name = data[0].inv_make
-  let nav = await utilities.getNav()
-  res.render("./inventory/vehicle", {title: name + "hello", nav, car,});
+  let name = data[0].inv_make + ' ' + data[0].inv_model;
+  let nav = await utilities.getNav();
+  res.render("./inventory/vehicle", {title: name, nav, car,});
 };
 
 module.exports = invCont
