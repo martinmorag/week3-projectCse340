@@ -65,16 +65,16 @@ Util.getVehicle = async function(data) {
   if (data.length > 0) {
     singleV = '<section class="vehicle">'
     data.forEach(vehicle => {
-      
-      singleV += '<h1 class="vehicleTitle">' + vehicle.inv_make + ' ' + vehicle.inv_model +'</h2>'
-      singleV += '<img src="' + vehicle.inv_image 
-      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +' on CSE Motors"'
+      singleV += '<div class="main-info">'
+        singleV += '<h2 class="vehicleTitle">' + vehicle.inv_make + ' ' + vehicle.inv_model +'</h2>'
+        singleV += '<img src="'+ vehicle.inv_image + '" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +' on CSE Motors">'
+      singleV += '</div>'
       singleV += '<div class="details">'
-      singleV += '<p class="mechanic">Mechanic Special Details</p>'
-      singleV += '<p class="price">' + 'Price: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
-      singleV += '<p class="description">' + 'Description: ' + vehicle.inv_description + '</p>'
-      singleV += '<p class="color">' + 'Color: ' + vehicle.inv_color + '</p>'
-      singleV += '<p class="miles">' + 'Miles: ' + vehicle.inv_miles + '</p>'
+        singleV += '<p class="mechanic">Mechanic Special Details</p>'
+        singleV += '<p class="price">' + 'Price: $  ' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
+        singleV += '<p class="description">' + 'Description: ' + vehicle.inv_description + '</p>'
+        singleV += '<p class="color">' + 'Color: ' + vehicle.inv_color + '</p>'
+        singleV += '<p class="miles">' + 'Miles: ' + vehicle.inv_miles.toLocaleString() + '</p>'
       singleV += '</div>'
       singleV += '</section>'
       
